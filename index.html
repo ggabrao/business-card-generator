@@ -1,61 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Business Card Generator</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        #card {
-            display: none;
+        .card {
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
             width: 300px;
             height: 200px;
             margin: 0 auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            text-align: center;
         }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen bg-gray-100 py-2">
-    <h1 class="text-2xl font-bold mb-4">Simple Business Card Generator</h1>
-    <div id="language-switch" class="mb-4">
-        <label>Choose your language: </label>
-        <button onclick="setLanguage('en')" class="px-4 py-2 bg-blue-500 text-white rounded">English</button>
-        <button onclick="setLanguage('pt')" class="px-4 py-2 bg-blue-500 text-white rounded">Portuguese</button>
+
+<body>
+    <header class="text-center">
+        <h1 class="text-2xl font-bold">Simple Business Card Generator</h1>
+    </header>
+
+    <div class="flex justify-center mt-8">
+        <button id="portugueseBtn" class="mr-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Portuguese
+        </button>
+        <button id="englishBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            English
+        </button>
     </div>
-    <div id="card" class="bg-white rounded p-4">
-        <h2 id="name" class="text-xl font-bold"></h2>
-        <h3 id="occupation" class="text-gray-500"></h3>
-        <a id="email" href="#" class="text-blue-500"></a>
-        <button onclick="generateNewCard()" class="mt-4 px-4 py-2 bg-green-500 text-white rounded">Generate New Card</button>
+
+    <div id="cardContainer" class="hidden mt-8">
+        <div id="card" class="card">
+            <h2 id="name" class="text-xl font-bold"></h2>
+            <h3 id="occupation" class="text-lg"></h3>
+            <footer>
+                <a id="email" href=""></a>
+            </footer>
+            <button id="generateBtn" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Generate New Card
+            </button>
+        </div>
     </div>
+
     <script>
-        function setLanguage(lang) {
-            document.getElementById('language-switch').style.display = 'none';
-            let name = '';
-            let occupation = '';
-            let email = '';
-            if (lang === 'en') {
-                name = prompt('Enter your name');
-                occupation = prompt('Enter your occupation');
-                email = prompt('Enter your email');
-            } else if (lang === 'pt') {
-                name = prompt('Digite seu nome');
-                occupation = prompt('Digite sua profissão');
-                email = prompt('Digite seu email');
+        const portugueseBtn = document.getElementById('portugueseBtn');
+        const englishBtn = document.getElementById('englishBtn');
+        const cardContainer = document.getElementById('cardContainer');
+        const card = document.getElementById('card');
+        const name = document.getElementById('name');
+        const occupation = document.getElementById('occupation');
+        const email = document.getElementById('email');
+        const generateBtn = document.getElementById('generateBtn');
+
+        portugueseBtn.addEventListener('click', () => {
+            showCard('pt-BR');
+        });
+
+        englishBtn.addEventListener('click', () => {
+            showCard('en-US');
+        });
+
+        generateBtn.addEventListener('click', () => {
+            const language = card.dataset.language;
+            showCard(language);
+        });
+
+        function showCard(language) {
+            const namePrompt = prompt(getLabel('name', language));
+            const occupationPrompt = prompt(getLabel('occupation', language));
+            const emailPrompt = prompt(getLabel('email', language));
+
+            if (namePrompt && occupationPrompt && emailPrompt) {
+                cardContainer.classList.remove('hidden');
+                card.dataset.language = language;
+                name.textContent = namePrompt;
+                occupation.textContent = occupationPrompt;
+                email.textContent = emailPrompt;
+                email.href = `mailto:${emailPrompt}`;
             }
-            document.getElementById('name').innerText = name;
-            document.getElementById('occupation').innerText = occupation;
-            document.getElementById('email').href = 'mailto:' + email;
-            document.getElementById('email').innerText = email;
-            document.getElementById('card').style.display = 'block';
         }
 
-        function generateNewCard() {
-            document.getElementById('language-switch').style.display = 'block';
-            document.getElementById('card').style.display = 'none';
+        function getLabel(field, language) {
+            if (language === 'pt-BR') {
+                switch (field) {
+                    case 'name':
+                        return 'Nome:';
+                    case 'occupation':
+                        return 'Profissão:';
+                    case 'email':
+                        return 'E-mail:';
+                }
+            } else {
+                switch (field) {
+                    case 'name':
+                        return 'Name:';
+                    case 'occupation':
+                        return 'Occupation:';
+                    case 'email':
+                        return 'Email:';
+                }
+            }
         }
     </script>
 </body>
+
 </html>
