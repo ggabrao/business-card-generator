@@ -11,13 +11,13 @@ If you wanna try it out, just open the index.html in the browser.
 - The app should be created with HTML, CSS and Javascript; 
 - The CSS and javascript should be embedded in the html file;
 - The app should be styled with tailwindcss; 
-- Enable the application to use portuguese special characters and accents; 
+- Enable the application to use portuguese special characters; 
 
 //First act
 - At first, there should only be a title and a switch with two buttons so that the user can choose the language of the application
 - The switch should be styled with tailwindcss 
 - The title should be a h1 tag 
-- The two buttons should be "Portuguese" and "English "
+- The two buttons should be "Portuguese" and "English"
 - If portuguese is chosen, use portuguese from Brazil 
 - The title should be "Simple Business Card Generator" 
 - The label of the switch should be "Choose your language:"        
