@@ -14,8 +14,7 @@ To try it out, just open the index.html in the browser.
 - When the app starts, there should only be a header and two buttons so that the user can choose the language of the application
 - The header should have the text "Simple Business Card Generator" and be centralized
 - The two buttons should be "Portuguese" and "English"
-- If portuguese is chosen, use portuguese from Brazil 
-- The label of the switch should be "Choose your language:"        
+- If portuguese is chosen, use portuguese from Brazil       
 - When the user clicks a button, a prompt should appear asking for the user's name, occupation and email in the chosen language
 - The prompt should have a label and an input for each of the informations 
 - The card should be have a border, shadow and padding 
