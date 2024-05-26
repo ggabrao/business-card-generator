@@ -10,7 +10,7 @@ To try it out, just open the index.html in the browser.
 - The app should be created with HTML, CSS and Javascript
 - The CSS and javascript should be embedded in the html file
 - Style with tailwindcss
-- Enable the application to use portuguese special characters;
+- Enable the application to use portuguese special characters
 - When the app starts, there should only be a header and two buttons so that the user can choose the language of the application
 - The header should have the text "Simple Business Card Generator" and be centralized
 - The two buttons should be "Portuguese" and "English"
