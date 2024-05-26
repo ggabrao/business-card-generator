@@ -17,7 +17,7 @@ To try it out, just open the index.html in the browser.
 - If portuguese is chosen, use portuguese from Brazil       
 - When the user clicks a button, a prompt should appear asking for the user's name, occupation and email in the chosen language
 - The prompt should have a label and an input for each of the informations 
-- The card should be have a border, shadow and padding 
+- The card should have a border, shadow and padding 
 - The card should be centered on the screen
 - The card should have fixed width and height
 - The card should have a title with the user's name, a subtitle with the user's occupation and a footer with the user's email as a link
