@@ -22,5 +22,7 @@ The results amazed me, because I didn't even touch the code, and yet something w
 - The card should have fixed width and height
 - The card should have a title with the user's name, a subtitle with the user's occupation and a footer with the user's email as a link
 - The card should have a button that allows the user to generate a new card in the chosen language
+  
 
-
+<img width="499" alt="Captura de Tela 2024-10-03 às 15 30 40" src="https://github.com/user-attachments/assets/e8baf556-8c32-4088-b77e-3ca03139878e">
+<img width="499" alt="Captura de Tela 2024-10-03 às 15 29 29" src="https://github.com/user-attachments/assets/eb40f72a-7264-4fa7-9e59-1f18361ab18d">
